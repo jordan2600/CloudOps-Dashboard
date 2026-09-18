@@ -1,5 +1,5 @@
 {
-    "remwrite": [
+    "rewrites": [
         { "source": "/(.*)", "destination": "index.html" }
     ]
 }
