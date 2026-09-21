@@ -1,29 +1,24 @@
-// Fase 8 – Infraestructura Global (próxima fase)
+import { Globe } from 'lucide-react';
+import RegionCard from '../components/RegionCard';
+import { cloudRegions } from '../data/CloudRegion';
 export default function Infrastructure() {
+  const locations = [...new Set(cloudRegions.map(region => region.location))];
   return (
-    <div style={{
-      backgroundColor: '#ffffff',
-      borderRadius: '16px',
-      border: '1px solid #E2E8F0',
-      boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-      padding: '64px 24px',
-      textAlign: 'center',
-    }}>
-      <div style={{
-        width: '56px', height: '56px', borderRadius: '16px',
-        backgroundColor: '#F1F5F9',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        margin: '0 auto 16px',
-        fontSize: '26px',
-      }}>
-        🌍
-      </div>
-      <p style={{ fontSize: '17px', fontWeight: 700, color: '#94A3B8', margin: '0 0 6px' }}>
-        Infraestructura Global
-      </p>
-      <p style={{ fontSize: '13px', color: '#CBD5E1', margin: 0 }}>
-        Fase 8 — En construcción
-      </p>
+    <div className="space-y-6">
+      <section className="panel space-y-4">
+        <h2 className="flex items-center gap-3">
+          <Globe className="text-blue-600" />Distribución global de la solución</h2>
+        <p>Regiones de esta simulación agrupadas por ubicación.</p>
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{locations.map(location => <div key={location} className="rounded-xl border border-blue-100 bg-blue-50 p-4">
+          <h3>{location}</h3>
+          <ul className="mt-3 space-y-2">{cloudRegions.filter(region => region.location === location).map(region => <li key={region.id} className="border-l-2 border-blue-500 pl-3">
+            <span className="block text-sm font-semibold">{region.name}</span>
+            <code className="text-xs text-slate-500">{region.id}</code>
+          </li>)}</ul>
+        </div>)}</div>
+      </section>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">{cloudRegions.map(region => <RegionCard key={region.id} region={region} />)}</div>
     </div>
   );
 }
+

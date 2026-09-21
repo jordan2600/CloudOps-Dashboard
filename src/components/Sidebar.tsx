@@ -1,28 +1,28 @@
-import { NavLink } from 'react-router-dom';
 import {
-  LayoutDashboard,
   ClipboardList,
+  Cloud,
   DollarSign,
   Globe,
-  Shield,
+  LayoutDashboard,
   Network,
   Server,
-  Cloud,
+  Shield,
 } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const navItems = [
-  { to: '/dashboard',      label: 'Dashboard',           icon: LayoutDashboard },
-  { to: '/planning',       label: 'Planificación Cloud',  icon: ClipboardList },
-  { to: '/costs',          label: 'Costos',               icon: DollarSign },
+  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { to: '/planning', label: 'Planificación Cloud', icon: ClipboardList },
+  { to: '/costs', label: 'Costos', icon: DollarSign },
   { to: '/infrastructure', label: 'Infraestructura Global', icon: Globe },
-  { to: '/security',       label: 'Seguridad',            icon: Shield },
-  { to: '/network',        label: 'Arquitectura de Red',  icon: Network },
-  { to: '/services',       label: 'Servicios AWS',        icon: Server },
+  { to: '/security', label: 'Seguridad', icon: Shield },
+  { to: '/network', label: 'Arquitectura de Red', icon: Network },
+  { to: '/services', label: 'Servicios AWS', icon: Server },
 ];
 
 export default function Sidebar() {
   return (
-    <aside style={{
+    <aside className="app-sidebar" style={{
       width: '260px',
       minWidth: '260px',
       height: '100vh',
@@ -75,7 +75,7 @@ export default function Sidebar() {
       </div>
 
       {/* Navegación */}
-      <nav style={{ flex: 1, padding: '0 10px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+      <nav aria-label="Menú principal" style={{ flex: 1, padding: '0 10px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
         {navItems.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}
@@ -110,9 +110,10 @@ export default function Sidebar() {
         borderTop: '1px solid rgba(255,255,255,0.07)',
       }}>
         <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '11px', margin: 0 }}>
-          Cloud Foundations © 2026
+          Cloud Foundations 
         </p>
       </div>
     </aside>
   );
 }
+

@@ -44,7 +44,7 @@ export interface CostItem {
   annualCost: number;
 }
 
-// ── Fase 9: Seguridad (pendiente) ────────────────────────────
+// ── Fase 9: Seguridad ────────────────────────────
 
 export interface SecurityItem {
   id: string;
@@ -54,7 +54,7 @@ export interface SecurityItem {
   status: StatusType;
 }
 
-// ── Fase 11: Servicios AWS (pendiente) ───────────────────────
+// ── Fase 11: Servicios AWS ───────────────────────
 
 export interface AWSService {
   id: string;
@@ -64,3 +64,6 @@ export interface AWSService {
   mainFunction: string;
   status: StatusType;
 }
+
+export type CostField = 'quantity' | 'estimatedHours' | 'unitCost';
+export type CostDistribution = { name: string; value: number }[];

@@ -1,4 +1,4 @@
-interface IndicatorCardProps {
+interface StatCardProps {
   title: string;
   value: string | number;
   subtitle: string;
@@ -7,19 +7,13 @@ interface IndicatorCardProps {
   iconColor: string;
 }
 
-export default function IndicatorCard({ title, value, subtitle, icon, iconBg, iconColor }: IndicatorCardProps) {
-  const CARD: React.CSSProperties = {
-    backgroundColor: '#ffffff',
-    borderRadius: '16px',
-    border: '1px solid #E2E8F0',
-    boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-    padding: '20px',
-  };
+export default function StatCard({ title, value, subtitle, icon, iconBg, iconColor }: StatCardProps) {
 
   return (
-    <div style={CARD}>
+    <div className="surface" style={{ padding: '20px' }}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-        <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: iconBg, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: iconColor }}>
+        <div
+          style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: iconBg, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: iconColor }}>
           {icon}
         </div>
         <div style={{ minWidth: 0 }}>
@@ -31,3 +25,4 @@ export default function IndicatorCard({ title, value, subtitle, icon, iconBg, ic
     </div>
   );
 }
+
